@@ -10,6 +10,7 @@ APlayerPawn::APlayerPawn()
 
 	PlayerMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("PlayerMesh"));
     static ConstructorHelpers::FObjectFinder<USkeletalMesh> MyMesh(TEXT("/Game/ControlRig/Characters/Mannequins/Meshes/SKM_Manny.SKM_Manny"));
+
     if (MyMesh.Succeeded())
     {
         PlayerMesh->SetSkeletalMesh(MyMesh.Object);
