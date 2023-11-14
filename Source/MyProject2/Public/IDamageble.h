@@ -4,9 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "IDamageble.generated.h"
 
 UINTERFACE(Blueprintable)
-class MYPROJECT2_API UIDamageable : public UInterface
+class MYPROJECT2_API UDamageable : public UInterface
 {
     GENERATED_BODY()
 };
@@ -19,4 +20,5 @@ public:
 
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     float TakeDamage(float DamageAmount);
+    virtual float TakeDamage_Implementation(float DamageAmount) = 0;
 };

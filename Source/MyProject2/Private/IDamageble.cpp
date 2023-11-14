@@ -2,11 +2,3 @@
 
 
 #include "IDamageble.h"
-
-IDamageble::IDamageble()
-{
-}
-
-IDamageble::~IDamageble()
-{
-}
