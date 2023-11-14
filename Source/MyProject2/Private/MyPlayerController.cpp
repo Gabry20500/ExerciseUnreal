@@ -15,20 +15,7 @@ void AMyPlayerController::BeginPlay()
     Super::BeginPlay();
 
     APlayerPawn* PlyPawn = nullptr;
-    //for (TActorIterator<APlayerPawn> ActorIterator(GetWorld()); ActorIterator; ++ActorIterator)
-    //{
-    //    PlyPawn = *ActorIterator;
-    //    break; // Esci dal ciclo dopo aver trovato il SpecificPawn
-    //}
 
-    if (PlyPawn)
-    {
-       /* Possess(PlyPawn);*/
-    }
-    else
-    {
-        UE_LOG(LogTemp, Warning, TEXT("PlyPawn non trovato!"));
-    }
 }
 
 void AMyPlayerController::Tick(float DeltaTime)

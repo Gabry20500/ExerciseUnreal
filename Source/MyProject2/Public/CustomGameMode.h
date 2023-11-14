@@ -6,6 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "PlayerPawn.h"
 #include "MyPlayerController.h"
+#include "PlayerSaveGame.h"
 #include "CustomGameMode.generated.h"
 
 /**
@@ -19,5 +20,16 @@ class MYPROJECT2_API ACustomGameMode : public AGameModeBase
 public:
 	ACustomGameMode();
 
+	void RestartPlayer(AController* PlayerController) override;
+
 	virtual void BeginPlay() override;
+
+	UFUNCTION(BlueprintCallable, Category = "SaveGame")
+	void SaveGame();
+
+	UFUNCTION(BlueprintCallable, Category = "SaveGame")
+	void LoadGame();
+
+protected:
+	void SetPlayerStatsFromSaveGame(UPlayerSaveGame* LoadedSaveGame);
 };

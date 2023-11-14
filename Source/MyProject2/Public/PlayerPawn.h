@@ -54,7 +54,7 @@ protected:
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "Player")
-	FPlayerStatistics GetPlayerStatistics() const;
+	FPlayerStatistics const& GetPlayerStatistics() const { return PlayerStats; }
 
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void SetPlayerStatistics(const FPlayerStatistics& NewStatistics);

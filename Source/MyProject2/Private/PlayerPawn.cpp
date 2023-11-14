@@ -24,11 +24,6 @@ void APlayerPawn::BeginPlay()
 	
 }
 
-FPlayerStatistics APlayerPawn::GetPlayerStatistics() const
-{
-	return PlayerStats;
-}
-
 void APlayerPawn::SetPlayerStatistics(const FPlayerStatistics& NewStatistics)
 {
 	PlayerStats = NewStatistics;
