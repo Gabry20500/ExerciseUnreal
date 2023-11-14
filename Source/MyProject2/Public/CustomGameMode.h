@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "PlayerPawn.h"
+#include "MyPlayerController.h"
 #include "CustomGameMode.generated.h"
 
 /**
@@ -18,11 +20,4 @@ public:
 	ACustomGameMode();
 
 	virtual void BeginPlay() override;
-
-protected:
-	UPROPERTY(EditDEfaultsOnly, BlueprintReadOnly, Category = "Custom GameMode")
-	TSubclassOf<APawn> DefaultPawnClass;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Custom GameMode")
-	TSubclassOf<APlayerController> DefaultControllerClass;
 };

@@ -2,15 +2,16 @@
 
 
 #include "CustomGameMode.h"
+#include "PlayerPawn.h"
+#include "MyPlayerController.h"
 
 ACustomGameMode::ACustomGameMode()
 {
-    DefaultPawnClass = APawn::StaticClass();
-    DefaultControllerClass = APlayerController::StaticClass();
+    DefaultPawnClass = APlayerPawn::StaticClass();
+    PlayerControllerClass = AMyPlayerController::StaticClass();
 }
 
 void ACustomGameMode::BeginPlay()
 {
     Super::BeginPlay();
-
 }
