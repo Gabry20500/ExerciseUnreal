@@ -1,0 +1,77 @@
+.h
+
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/GameUserSettings.h"
+#include "MyGameUserSettings.generated.h"
+
+/**
+ * 
+ */
+UCLASS()
+class MYPROJECT2_API UMyGameUserSettings : public UGameUserSettings
+{
+	GENERATED_BODY()
+	
+public:
+	UMyGameUserSettings();
+
+
+	static UMyGameUserSettings* GetInstance();
+
+	UFUNCTION(BlueprintCallable, Category = "Settings")
+	void ApplyAndSaveSettings();
+
+	UFUNCTION(BlueprintCallable, Category = "Settings")
+	void SetPlayerSpeed(float newSpeed) { PlayerSpeed = newSpeed; }
+protected:
+	UPROPERTY(Config)
+	float PlayerSpeed;
+
+private:
+	static UMyGameUserSettings* Instance;
+};
+
+
+
+.cpp
+
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "MyGameUserSettings.h"
+
+UMyGameUserSettings* UMyGameUserSettings::GetInstance()
+{
+	if (!Instance)
+	{
+		Instance = NewObject<UMyGameUserSettings>();
+		Instance->AddToRoot();
+		Instance->LoadConfig();
+	}
+
+	return Instance;
+}
+
+void UMyGameUserSettings::ApplyAndSaveSettings()
+{
+	if (Instance)
+	{
+		if (PlayerSpeed == NULL) {
+			UE_LOG(LogTemp, Warning, TEXT("Nessuna modifica effettuata"));
+			return;
+		}
+
+		Instance->SaveConfig();
+		Instance->ApplySettings(false);
+	}
+}
+
+UMyGameUserSettings::UMyGameUserSettings()
+{
+	PlayerSpeed = NULL;
+}
+

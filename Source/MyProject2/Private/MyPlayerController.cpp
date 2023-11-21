@@ -8,6 +8,7 @@
 AMyPlayerController::AMyPlayerController()
 {
     PrimaryActorTick.bCanEverTick = true;
+    PlayerSpeed = 500.0f;
 }
 
 void AMyPlayerController::BeginPlay()
@@ -24,7 +25,7 @@ void AMyPlayerController::Tick(float DeltaTime)
 
     if (GetPawn())
     {
-        FVector NewLocation = GetPawn()->GetActorLocation() + (MovementInput * DeltaTime * 500.0f); // Adjust the multiplier based on desired movement speed
+        FVector NewLocation = GetPawn()->GetActorLocation() + (MovementInput * DeltaTime * PlayerSpeed); // Adjust the multiplier based on desired movement speed
         GEngine->AddOnScreenDebugMessage(-1, 0, FColor::Cyan, FString::Printf(TEXT("%s"), *(MovementInput * DeltaTime * 500.0f).ToString()));
         GetPawn()->SetActorLocation(NewLocation);
     }

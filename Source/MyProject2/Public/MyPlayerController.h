@@ -29,6 +29,10 @@ public:
     void OnMouseX(float Value);
     void OnMouseY(float Value);
 
+    float GetPlayerSpeed() const { return PlayerSpeed; }
+    void SetPlayerSpeed(float NewSpeed) { PlayerSpeed = NewSpeed; }
 protected:
+
+    float PlayerSpeed;
     FVector MovementInput;
 };
