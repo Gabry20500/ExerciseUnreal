@@ -8,7 +8,7 @@
 #include "PlayerSaveGame.generated.h"
 
 USTRUCT(BlueprintType)
-struct FPlayerStats {
+struct FGameDatas {
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player")
@@ -25,7 +25,7 @@ class MYPROJECT2_API UPlayerSaveGame : public USaveGame
 	
 public:
 	UPROPERTY(VisibleAnywhere, Category = "SaveGame")
-	FPlayerStatistics PlayerStats;
+	FGameData PlayerStats;
 
 	UPlayerSaveGame();
 };

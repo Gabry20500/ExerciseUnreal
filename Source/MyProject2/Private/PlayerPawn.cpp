@@ -6,7 +6,7 @@
 
 APlayerPawn::APlayerPawn()
 {
-    PlayerStats = FPlayerStatistics();
+    PlayerStats = FGameData();
 
 	PlayerMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("PlayerMesh"));
     static ConstructorHelpers::FObjectFinder<USkeletalMesh> MyMesh(TEXT("/Game/ControlRig/Characters/Mannequins/Meshes/SKM_Manny.SKM_Manny"));
@@ -24,7 +24,7 @@ void APlayerPawn::BeginPlay()
 	
 }
 
-void APlayerPawn::SetPlayerStatistics(const FPlayerStatistics& NewStatistics)
+void APlayerPawn::SetPlayerStatistics(const FGameData& NewStatistics)
 {
 	PlayerStats = NewStatistics;
 }

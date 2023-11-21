@@ -19,7 +19,7 @@ enum class EPlayerClass : uint8
 
 
 USTRUCT(BlueprintType)
-struct MYPROJECT2_API FPlayerStatistics
+struct MYPROJECT2_API FGameData
 {
 	GENERATED_BODY()
 
@@ -36,7 +36,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player")
 	EPlayerClass PlayerClass;
 
-	FPlayerStatistics() : Health(100), Power(100), VogliaDiVivere(true), PlayerClass(EPlayerClass::Warrior)
+	FGameData() : Health(100), Power(100), VogliaDiVivere(true), PlayerClass(EPlayerClass::Warrior)
 	{
 	}
 };
@@ -54,10 +54,10 @@ protected:
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "Player")
-	FPlayerStatistics const& GetPlayerStatistics() const { return PlayerStats; }
+	FGameData const& GetPlayerStatistics() const { return PlayerStats; }
 
 	UFUNCTION(BlueprintCallable, Category = "Player")
-	void SetPlayerStatistics(const FPlayerStatistics& NewStatistics);
+	void SetPlayerStatistics(const FGameData& NewStatistics);
 
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void Kill();
@@ -68,7 +68,7 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player", meta = (AllowPrivateAccess = "true"))
-	FPlayerStatistics PlayerStats;
+	FGameData PlayerStats;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Player")
 	USkeletalMeshComponent* PlayerMesh;
