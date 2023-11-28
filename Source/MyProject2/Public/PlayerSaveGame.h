@@ -24,7 +24,7 @@ class MYPROJECT2_API UPlayerSaveGame : public USaveGame
 	GENERATED_BODY()
 	
 public:
-	UPROPERTY(VisibleAnywhere, Category = "SaveGame")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SaveGame")
 	FGameData PlayerStats;
 
 	UPlayerSaveGame();
